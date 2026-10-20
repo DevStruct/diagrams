@@ -239,7 +239,10 @@ export const useDiagramStore = create<EstadoDiagramas>((set) => ({
         },
         selected: true,
       };
-      const nodos = diagrama.nodos.map((nodo) => ({ ...nodo, selected: false })).concat(copia);
+      const nodos: NodoDiagrama[] = [
+        ...diagrama.nodos.map((nodo) => ({ ...nodo, selected: false })),
+        copia,
+      ];
 
       return {
         ...historial,
